@@ -1,0 +1,349 @@
+:root {
+    --grafite: #202321;
+    --verde-limao: #B7D83D;
+    --off-white: #F1F0E9;
+    --grafite-claro: #2c302d;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--off-white);
+    color: var(--grafite);
+    font-family: 'Inter', Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Cabeçalho */
+.topo {
+    background-color: var(--grafite);
+    color: var(--off-white);
+    border-bottom: 4px solid var(--verde-limao);
+    padding: 2.5rem 1.2rem;
+}
+
+.topo-conteudo {
+    max-width: 1120px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.logo-svg {
+    width: 105px;
+    height: auto;
+    display: block;
+}
+
+.topo-texto {
+    max-width: 540px;
+}
+
+.tag-catalogo {
+    display: inline-block;
+    background-color: var(--verde-limao);
+    color: var(--grafite);
+    font-family: 'Chakra Petch', sans-serif;
+    font-weight: 700;
+    font-size: 0.78rem;
+    letter-spacing: 1.5px;
+    padding: 0.25rem 0.65rem;
+    margin-bottom: 0.6rem;
+}
+
+.topo-texto h1 {
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 2.4rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    line-height: 1.1;
+    color: var(--off-white);
+}
+
+.topo-texto p {
+    margin-top: 0.6rem;
+    color: #c8c7be;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+/* Faixa de Ícones */
+.faixa-icones {
+    background-color: var(--grafite-claro);
+    color: var(--off-white);
+    padding: 0.9rem 1rem;
+    border-bottom: 2px solid var(--grafite);
+}
+
+.faixa-container {
+    max-width: 1120px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+}
+
+.item-icone {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: 'Chakra Petch', sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+}
+
+.item-icone svg {
+    width: 30px;
+    height: 24px;
+    flex-shrink: 0;
+}
+
+/* Barra de Filtros */
+.barra-filtros {
+    max-width: 1120px;
+    width: 100%;
+    margin: 2rem auto 0;
+    padding: 0 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.barra-filtros span {
+    font-family: 'Chakra Petch', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+.filtros-botoes {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+}
+
+.btn-filtro {
+    background: transparent;
+    color: var(--grafite);
+    border: 2px solid var(--grafite);
+    padding: 0.4rem 0.9rem;
+    font-family: 'Chakra Petch', sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.btn-filtro:hover,
+.btn-filtro.ativo {
+    background-color: var(--grafite);
+    color: var(--verde-limao);
+}
+
+/* Grade de Camisetas */
+.grid-produtos {
+    width: 100%;
+    max-width: 1120px;
+    margin: 1.5rem auto 3rem;
+    padding: 0 1.2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+    gap: 1.8rem;
+    flex-grow: 1;
+}
+
+.card {
+    background-color: #ffffff;
+    border: 2px solid var(--grafite);
+    box-shadow: 6px 6px 0px var(--grafite);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.card:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 8px 8px 0px var(--verde-limao);
+}
+
+.card-img-box {
+    position: relative;
+    background-color: var(--off-white);
+    border-bottom: 2px solid var(--grafite);
+    height: 310px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.card-img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 12px;
+}
+
+.card-info {
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.card-info h2 {
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--grafite);
+    margin-bottom: 0.4rem;
+}
+
+.preco {
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--grafite);
+    background-color: var(--verde-limao);
+    display: inline-block;
+    align-self: flex-start;
+    padding: 0.15rem 0.6rem;
+    margin-bottom: 1rem;
+}
+
+.label-tamanho {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: #555;
+    margin-bottom: 0.45rem;
+}
+
+.tamanhos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    margin-bottom: 1.3rem;
+}
+
+.btn-tamanho {
+    border: 2px solid var(--grafite);
+    background-color: var(--off-white);
+    color: var(--grafite);
+    padding: 0.4rem 0.75rem;
+    font-family: 'Chakra Petch', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.btn-tamanho:hover {
+    background-color: var(--verde-limao);
+}
+
+.btn-tamanho.ativo {
+    background-color: var(--grafite);
+    color: var(--verde-limao);
+}
+
+.btn-comprar {
+    margin-top: auto;
+    background-color: var(--grafite);
+    color: var(--verde-limao);
+    border: 2px solid var(--grafite);
+    padding: 0.9rem;
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: all 0.15s ease;
+}
+
+.btn-comprar:hover {
+    background-color: var(--verde-limao);
+    color: var(--grafite);
+}
+
+/* Aviso flutuante de pedido copiado */
+.aviso-copiado {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%) translateY(120px);
+    background-color: var(--grafite);
+    color: var(--verde-limao);
+    border: 2px solid var(--verde-limao);
+    box-shadow: 4px 4px 0px var(--grafite);
+    padding: 0.9rem 1.4rem;
+    font-family: 'Chakra Petch', sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-align: center;
+    z-index: 999;
+    opacity: 0;
+    transition: all 0.25s ease;
+}
+
+.aviso-copiado.mostrar {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+}
+
+/* Rodapé */
+.rodape {
+    background-color: var(--grafite);
+    color: var(--off-white);
+    border-top: 4px solid var(--verde-limao);
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+.rodape-emblema {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+}
+
+.rodape p {
+    color: #b5b4ac;
+    font-size: 0.85rem;
+}
+
+@media (max-width: 600px) {
+    .topo-conteudo {
+        text-align: center;
+        gap: 1.2rem;
+    }
+
+    .topo-texto h1 {
+        font-size: 1.9rem;
+    }
+}
