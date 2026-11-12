@@ -12,10 +12,9 @@ const camisetas = [
         nome: "Camisa Internacional Branca Manga Longa",
         preco: 200.00,
         tentativasFoto: [
+            "WhatsApp Image 2026-11-12 at 15.10.38.jpeg",
             "inter.jpeg",
-            "inter.jpg",
-            "inter.png",
-            "WhatsApp Image 2026-11-12 at 15.10.38.jpeg"
+            "inter.jpg"
         ],
         tamanhos: ["P", "M", "G", "GG"]
     },
@@ -23,22 +22,20 @@ const camisetas = [
         nome: "Camisa Seleção da Espanha Off-White",
         preco: 160.00,
         tentativasFoto: [
+            "WhatsApp Image 2026-11-12 at 15.10.39 (1).jpeg",
+            "WhatsApp Image 2026-11-12 at 15.10.40.jpeg",
             "espanha.jpeg",
-            "espanha.jpg",
-            "espanha.png",
-            "WhatsApp Image 2026-11-12 at 15.10.39 (2).jpeg",
-            "WhatsApp Image 2026-11-12 at 15.10.40.jpeg"
+            "espanha.jpg"
         ],
         tamanhos: ["P", "M", "G", "GG"]
     },
     {
-        nome: "Camisa Seleção da França Azul Clara",
+        nome: "Camisa Seleção da França Off-White",
         preco: 160.00,
         tentativasFoto: [
+            "WhatsApp Image 2026-11-12 at 15.10.40 (1).jpeg",
             "franca.jpeg",
-            "franca.jpg",
-            "franca.png",
-            "WhatsApp Image 2026-11-12 at 15.10.40 (1).jpeg"
+            "franca.jpg"
         ],
         tamanhos: ["P", "M", "G", "GG"]
     },
@@ -46,11 +43,10 @@ const camisetas = [
         nome: "Camisa Arsenal Vermelha e Branca",
         preco: 160.00,
         tentativasFoto: [
+            "WhatsApp Image 2026-11-12 at 15.10.39 (2).jpeg",
+            "WhatsApp Image 2026-11-12 at 15.10.39.jpeg",
             "arsenal.jpeg",
-            "arsenal.jpg",
-            "arsenal.png",
-            "WhatsApp Image 2026-11-12 at 15.10.39 (3).jpeg",
-            "WhatsApp Image 2026-11-12 at 15.10.39.jpeg"
+            "arsenal.jpg"
         ],
         tamanhos: ["P", "M", "G", "GG"]
     },
@@ -58,10 +54,9 @@ const camisetas = [
         nome: "Camisa Palmeiras Verde",
         preco: 160.00,
         tentativasFoto: [
+            "WhatsApp Image 2026-11-12 at 15.10.39 (3).jpeg",
             "palmeiras.jpeg",
-            "palmeiras.jpg",
-            "palmeiras.png",
-            "WhatsApp Image 2026-11-12 at 15.10.38 (1).jpeg"
+            "palmeiras.jpg"
         ],
         tamanhos: ["P", "M", "G", "GG"]
     },
@@ -69,10 +64,9 @@ const camisetas = [
         nome: "Camisa Grêmio Azul Edição 1996",
         preco: 160.00,
         tentativasFoto: [
+            "WhatsApp Image 2026-11-12 at 15.10.38 (1).jpeg",
             "gremio.jpeg",
-            "gremio.jpg",
-            "gremio.png",
-            "WhatsApp Image 2026-11-12 at 15.10.39 (1).jpeg"
+            "gremio.jpg"
         ],
         tamanhos: ["P", "M", "G", "GG"]
     }
@@ -135,7 +129,6 @@ function renderizarVitrine(filtroTamanho = "TODOS") {
             </div>
         `;
 
-        // Tenta encontrar o arquivo da foto automaticamente pelos possíveis nomes
         const img = card.querySelector("img");
         let indiceTentativa = 0;
 
