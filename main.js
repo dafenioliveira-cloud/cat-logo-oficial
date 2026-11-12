@@ -30,7 +30,7 @@ const camisetas = [
         tamanhos: ["P", "M", "G", "GG"]
     },
     {
-        nome: "Camisa Seleção da França Off-White",
+        nome: "Camisa Seleção da França II 2026/27",
         preco: 160.00,
         tentativasFoto: [
             "WhatsApp Image 2026-11-12 at 15.10.40 (1).jpeg",
