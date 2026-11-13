@@ -2,7 +2,7 @@
 // 1. CONFIGURAÇÕES DA THE 10 CLUB
 // =========================================================================
 const seuInstagram = "_the10club";
-const valorPersonalizacao = 20.00; // Valor adicional para nome/número
+const valorPersonalizacao = 30.00; // Valor adicional para nome/número
 
 
 // =========================================================================
