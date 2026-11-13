@@ -1,7 +1,8 @@
 // =========================================================================
-// 1. INSTAGRAM OFICIAL DA THE 10 CLUB
+// 1. CONFIGURAÇÕES DA THE 10 CLUB
 // =========================================================================
 const seuInstagram = "_the10club";
+const valorPersonalizacao = 20.00; // Valor adicional para nome/número
 
 
 // =========================================================================
@@ -130,12 +131,12 @@ const camisetas = [
         tamanhos: ["P", "M", "G", "GG", "3XG"]
     },
 
-    // --- MODELOS ATUALIZADOS ---
+    // --- MODELOS COM FOTOS ATUALIZADAS ---
     {
         nome: "Camisa Internacional II Manga Longa",
         preco: 200.00,
         tentativasFoto: [
-            "WhatsApp Image 2026-11-12 at 15.10.38.jpeg",
+            "WhatsApp Image 2026-11-13 at 08.29.47.jpeg",
             "inter.jpeg",
             "inter.jpg"
         ],
@@ -145,8 +146,7 @@ const camisetas = [
         nome: "Camisa Espanha I 2026/27",
         preco: 160.00,
         tentativasFoto: [
-            "WhatsApp Image 2026-11-12 at 15.10.39 (1).jpeg",
-            "WhatsApp Image 2026-11-12 at 15.10.40.jpeg",
+            "WhatsApp Image 2026-11-13 at 08.02.58.jpeg",
             "espanha.jpeg",
             "espanha.jpg"
         ],
@@ -156,7 +156,7 @@ const camisetas = [
         nome: "Camisa França II 2026/27",
         preco: 160.00,
         tentativasFoto: [
-            "WhatsApp Image 2026-11-12 at 15.10.40 (1).jpeg",
+            "WhatsApp Image 2026-11-13 at 08.02.57 (2).jpeg",
             "franca.jpeg",
             "franca.jpg"
         ],
@@ -197,11 +197,12 @@ const camisetas = [
 
 
 // =========================================================================
-// 3. LÓGICA DA VITRINE, FILTROS E ENVIO PARA O INSTAGRAM (NÃO PRECISA ALTERAR)
+// 3. LÓGICA DA VITRINE, ZOOM, PERSONALIZAÇÃO, FILTROS E INSTAGRAM
 // =========================================================================
 const vitrine = document.getElementById("vitrine");
 const botoesFiltro = document.querySelectorAll(".btn-filtro");
 const avisoCopiado = document.getElementById("aviso-copiado");
+let temporizadorAviso;
 
 const imagemAviso = "data:image/svg+xml;utf8," + encodeURIComponent(
     `<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300">
@@ -211,11 +212,60 @@ const imagemAviso = "data:image/svg+xml;utf8," + encodeURIComponent(
     </svg>`
 );
 
+// Criação automática do modal de Zoom
+const modalZoom = document.createElement("div");
+modalZoom.className = "modal-zoom";
+modalZoom.innerHTML = `
+    <button class="btn-fechar-zoom" aria-label="Fechar zoom">&times;</button>
+    <img src="" alt="">
+    <p class="modal-zoom-legenda"></p>
+`;
+document.body.appendChild(modalZoom);
+
+const modalImg = modalZoom.querySelector("img");
+const modalLegenda = modalZoom.querySelector(".modal-zoom-legenda");
+const btnFecharZoom = modalZoom.querySelector(".btn-fechar-zoom");
+
+function abrirZoom(src, titulo) {
+    modalImg.src = src;
+    modalImg.alt = titulo;
+    modalLegenda.textContent = titulo;
+    modalZoom.classList.add("aberto");
+    document.body.style.overflow = "hidden";
+}
+
+function fecharZoom() {
+    modalZoom.classList.remove("aberto");
+    document.body.style.overflow = "";
+}
+
+btnFecharZoom.addEventListener("click", fecharZoom);
+modalZoom.addEventListener("click", (e) => {
+    if (e.target === modalZoom) {
+        fecharZoom();
+    }
+});
+document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && modalZoom.classList.contains("aberto")) {
+        fecharZoom();
+    }
+});
+
+function formatarMoeda(valor) {
+    return valor.toFixed(2).replace(".", ",");
+}
+
 function mostrarAviso() {
+    clearTimeout(temporizadorAviso);
+    avisoCopiado.innerHTML = `
+        <strong>✓ PEDIDO COPIADO!</strong><br>
+        Agora aperte <strong>COLAR</strong> no Direct.
+    `;
     avisoCopiado.classList.add("mostrar");
-    setTimeout(() => {
+
+    temporizadorAviso = setTimeout(() => {
         avisoCopiado.classList.remove("mostrar");
-    }, 3500);
+    }, 9000);
 }
 
 function renderizarVitrine(filtroTamanho = "TODOS") {
@@ -229,7 +279,9 @@ function renderizarVitrine(filtroTamanho = "TODOS") {
         const card = document.createElement("div");
         card.classList.add("card");
 
-        const precoFormatado = camisa.preco.toFixed(2).replace(".", ",");
+        const textoAdicional = valorPersonalizacao > 0
+            ? `(+ R$ ${formatarMoeda(valorPersonalizacao)})`
+            : "(Grátis)";
 
         const botoesTamanho = camisa.tamanhos
             .map((tam) => {
@@ -245,13 +297,26 @@ function renderizarVitrine(filtroTamanho = "TODOS") {
             </div>
             <div class="card-info">
                 <h2>${camisa.nome}</h2>
-                <p class="preco">R$ ${precoFormatado}</p>
+                <p class="preco">R$ ${formatarMoeda(camisa.preco)}</p>
                 <span class="label-tamanho">Selecione o tamanho:</span>
                 <div class="tamanhos">${botoesTamanho}</div>
+
+                <div class="personalizacao-box">
+                    <label class="check-personalizar">
+                        <input type="checkbox" class="input-check-pers">
+                        <span>Personalizar nome/nº ${textoAdicional}</span>
+                    </label>
+                    <div class="campos-personalizacao">
+                        <input type="text" class="input-nome-camisa" placeholder="Nome (ex: NEYMAR JR)" maxlength="18">
+                        <input type="text" class="input-numero-camisa" placeholder="Nº" maxlength="3" inputmode="numeric">
+                    </div>
+                </div>
+
                 <button class="btn-comprar">Pedir no Instagram</button>
             </div>
         `;
 
+        const imgBox = card.querySelector(".card-img-box");
         const img = card.querySelector("img");
         let indiceTentativa = 0;
 
@@ -264,6 +329,11 @@ function renderizarVitrine(filtroTamanho = "TODOS") {
             }
         });
 
+        // Abre a foto ampliada ao clicar
+        imgBox.addEventListener("click", () => {
+            abrirZoom(img.src, camisa.nome);
+        });
+
         const botoes = card.querySelectorAll(".btn-tamanho");
         botoes.forEach((botao) => {
             botao.addEventListener("click", () => {
@@ -272,10 +342,66 @@ function renderizarVitrine(filtroTamanho = "TODOS") {
             });
         });
 
+        // Lógica de Personalização (Nome e Número)
+        const textoPreco = card.querySelector(".preco");
+        const checkPers = card.querySelector(".input-check-pers");
+        const boxCampos = card.querySelector(".campos-personalizacao");
+        const inputNome = card.querySelector(".input-nome-camisa");
+        const inputNumero = card.querySelector(".input-numero-camisa");
+
+        checkPers.addEventListener("change", () => {
+            if (checkPers.checked) {
+                boxCampos.classList.add("aberto");
+                textoPreco.textContent = `R$ ${formatarMoeda(camisa.preco + valorPersonalizacao)}`;
+                inputNome.focus();
+            } else {
+                boxCampos.classList.remove("aberto");
+                textoPreco.textContent = `R$ ${formatarMoeda(camisa.preco)}`;
+                inputNome.classList.remove("campo-erro");
+                inputNumero.classList.remove("campo-erro");
+            }
+        });
+
+        inputNome.addEventListener("input", () => {
+            inputNome.value = inputNome.value.toUpperCase();
+            inputNome.classList.remove("campo-erro");
+            inputNumero.classList.remove("campo-erro");
+        });
+
+        inputNumero.addEventListener("input", () => {
+            inputNumero.value = inputNumero.value.replace(/\D/g, "");
+            inputNome.classList.remove("campo-erro");
+            inputNumero.classList.remove("campo-erro");
+        });
+
+        // Botão Pedir no Instagram
         const btnComprar = card.querySelector(".btn-comprar");
         btnComprar.addEventListener("click", async () => {
             const tamanhoEscolhido = card.querySelector(".btn-tamanho.ativo").textContent;
-            const mensagem = `Salve, THE 10 CLUB! Quero encomendar a ${camisa.nome} (Tamanho: ${tamanhoEscolhido}) - R$ ${precoFormatado}.`;
+            let precoFinal = camisa.preco;
+            let detalhePersonalizacao = "";
+
+            if (checkPers.checked) {
+                const nomeDigitado = inputNome.value.trim();
+                const numeroDigitado = inputNumero.value.trim();
+
+                if (!nomeDigitado && !numeroDigitado) {
+                    inputNome.classList.add("campo-erro");
+                    inputNumero.classList.add("campo-erro");
+                    inputNome.focus();
+                    return;
+                }
+
+                precoFinal += valorPersonalizacao;
+
+                const partes = [];
+                if (nomeDigitado) partes.push(`Nome: ${nomeDigitado}`);
+                if (numeroDigitado) partes.push(`Nº: ${numeroDigitado}`);
+                detalhePersonalizacao = ` | Personalização -> ${partes.join(" / ")}`;
+            }
+
+            const precoFinalFormatado = formatarMoeda(precoFinal);
+            const mensagem = `Salve, THE 10 CLUB! Quero encomendar a ${camisa.nome} (Tamanho: ${tamanhoEscolhido}${detalhePersonalizacao}) - R$ ${precoFinalFormatado}.`;
 
             try {
                 await navigator.clipboard.writeText(mensagem);
@@ -289,12 +415,15 @@ function renderizarVitrine(filtroTamanho = "TODOS") {
             }
 
             mostrarAviso();
-            btnComprar.textContent = "Copiado! Abrindo Direct...";
+            btnComprar.textContent = "✓ Copiado! Cole no Direct...";
+
+            setTimeout(() => {
+                window.open(`https://ig.me/m/${seuInstagram}`, "_blank");
+            }, 2500);
 
             setTimeout(() => {
                 btnComprar.textContent = "Pedir no Instagram";
-                window.open(`https://ig.me/m/${seuInstagram}`, "_blank");
-            }, 700);
+            }, 5000);
         });
 
         vitrine.appendChild(card);
