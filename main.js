@@ -5,21 +5,144 @@ const seuInstagram = "_the10club";
 
 
 // =========================================================================
-// 2. CAMISETAS CADASTRADAS (R$ 160,00 | TAMANHOS P, M, G E GG)
+// 2. CAMISETAS CADASTRADAS (TAMANHOS P, M, G, GG E 3XG)
 // =========================================================================
 const camisetas = [
+    // --- COLEÇÃO 2026/27 ---
     {
-        nome: "Camisa Internacional Branca Manga Longa",
+        nome: "Camisa Celtic 2026/27",
+        preco: 160.00,
+        tentativasFoto: [
+            "WhatsApp Image 2026-11-13 at 13.55.30.jpeg"
+        ],
+        tamanhos: ["P", "M", "G", "GG", "3XG"]
+    },
+    {
+        nome: "Camisa Internacional I 2026/27",
+        preco: 160.00,
+        tentativasFoto: [
+            "WhatsApp Image 2026-11-13 at 13.55.32.jpeg"
+        ],
+        tamanhos: ["P", "M", "G", "GG", "3XG"]
+    },
+    {
+        nome: "Camisa Grêmio I 2026/27",
+        preco: 160.00,
+        tentativasFoto: [
+            "WhatsApp Image 2026-11-13 at 13.55.31 (3).jpeg"
+        ],
+        tamanhos: ["P", "M", "G", "GG", "3XG"]
+    },
+    {
+        nome: "Camisa Corinthians 2026/27 - Modelo Jogador",
+        preco: 200.00,
+        tentativasFoto: [
+            "WhatsApp Image 2026-11-13 at 13.55.29 (1).jpeg"
+        ],
+        tamanhos: ["P", "M", "G", "GG", "3XG"]
+    },
+    {
+        nome: "Camisa França I 2026/27",
+        preco: 160.00,
+        tentativasFoto: [
+            "WhatsApp Image 2026-11-13 at 13.55.32 (1).jpeg"
+        ],
+        tamanhos: ["P", "M", "G", "GG", "3XG"]
+    },
+    {
+        nome: "Camisa Argentina I 2026/27",
+        preco: 160.00,
+        tentativasFoto: [
+            "WhatsApp Image 2026-11-13 at 13.55.31 (1).jpeg"
+        ],
+        tamanhos: ["P", "M", "G", "GG", "3XG"]
+    },
+    {
+        nome: "Camisa Portugal I 2026/27",
+        preco: 160.00,
+        tentativasFoto: [
+            "WhatsApp Image 2026-11-13 at 13.55.29.jpeg"
+        ],
+        tamanhos: ["P", "M", "G", "GG", "3XG"]
+    },
+    {
+        nome: "Camisa Manchester United I 2026/27",
+        preco: 160.00,
+        tentativasFoto: [
+            "WhatsApp Image 2026-11-13 at 13.55.32 (2).jpeg"
+        ],
+        tamanhos: ["P", "M", "G", "GG", "3XG"]
+    },
+    {
+        nome: "Camisa Barcelona I 2026/27",
+        preco: 160.00,
+        tentativasFoto: [
+            "WhatsApp Image 2026-11-13 at 13.55.30 (3).jpeg"
+        ],
+        tamanhos: ["P", "M", "G", "GG", "3XG"]
+    },
+    {
+        nome: "Camisa Real Madrid I 2026/27",
+        preco: 160.00,
+        tentativasFoto: [
+            "WhatsApp Image 2026-11-13 at 13.55.30 (2).jpeg"
+        ],
+        tamanhos: ["P", "M", "G", "GG", "3XG"]
+    },
+    {
+        nome: "Camisa Grêmio I 2026/27 - Modelo Feminino",
+        preco: 160.00,
+        tentativasFoto: [
+            "WhatsApp Image 2026-11-13 at 13.55.32 (3).jpeg"
+        ],
+        tamanhos: ["P", "M", "G", "GG", "3XG"]
+    },
+    {
+        nome: "Camisa Internacional II 2026/27 - Modelo Feminino",
+        preco: 160.00,
+        tentativasFoto: [
+            "WhatsApp Image 2026-11-13 at 13.55.32 (4).jpeg"
+        ],
+        tamanhos: ["P", "M", "G", "GG", "3XG"]
+    },
+    {
+        nome: "Camisa Grêmio II 2026/27 - Modelo Feminino",
+        preco: 160.00,
+        tentativasFoto: [
+            "WhatsApp Image 2026-11-13 at 13.55.30 (1).jpeg"
+        ],
+        tamanhos: ["P", "M", "G", "GG", "3XG"]
+    },
+    {
+        nome: "Camisa Manchester United III 2026/27",
+        preco: 160.00,
+        tentativasFoto: [
+            "WhatsApp Image 2026-11-13 at 13.55.31 (2).jpeg"
+        ],
+        tamanhos: ["P", "M", "G", "GG", "3XG"]
+    },
+    {
+        nome: "Camisa Santos I 2026/27 - Modelo Jogador",
+        preco: 200.00,
+        tentativasFoto: [
+            "WhatsApp Image 2026-11-13 at 13.55.31.jpeg"
+        ],
+        tamanhos: ["P", "M", "G", "GG", "3XG"]
+    },
+
+    // --- MODELOS ATUALIZADOS ---
+    {
+        nome: "Camisa Internacional II Manga Longa",
         preco: 200.00,
         tentativasFoto: [
             "WhatsApp Image 2026-11-12 at 15.10.38.jpeg",
             "inter.jpeg",
             "inter.jpg"
         ],
-        tamanhos: ["P", "M", "G", "GG"]
+        tamanhos: ["P", "M", "G", "GG", "3XG"]
     },
     {
-        nome: "Camisa Seleção da Espanha Off-White",
+        nome: "Camisa Espanha I 2026/27",
         preco: 160.00,
         tentativasFoto: [
             "WhatsApp Image 2026-11-12 at 15.10.39 (1).jpeg",
@@ -27,20 +150,20 @@ const camisetas = [
             "espanha.jpeg",
             "espanha.jpg"
         ],
-        tamanhos: ["P", "M", "G", "GG"]
+        tamanhos: ["P", "M", "G", "GG", "3XG"]
     },
     {
-        nome: "Camisa Seleção da França II 2026/27",
+        nome: "Camisa França II 2026/27",
         preco: 160.00,
         tentativasFoto: [
             "WhatsApp Image 2026-11-12 at 15.10.40 (1).jpeg",
             "franca.jpeg",
             "franca.jpg"
         ],
-        tamanhos: ["P", "M", "G", "GG"]
+        tamanhos: ["P", "M", "G", "GG", "3XG"]
     },
     {
-        nome: "Camisa Arsenal Vermelha e Branca",
+        nome: "Camisa Arsenal I 2026/27",
         preco: 160.00,
         tentativasFoto: [
             "WhatsApp Image 2026-11-12 at 15.10.39 (2).jpeg",
@@ -48,27 +171,27 @@ const camisetas = [
             "arsenal.jpeg",
             "arsenal.jpg"
         ],
-        tamanhos: ["P", "M", "G", "GG"]
+        tamanhos: ["P", "M", "G", "GG", "3XG"]
     },
     {
-        nome: "Camisa Palmeiras Verde",
-        preco: 160.00,
+        nome: "Camisa Palmeiras I 2026/27 - Modelo Jogador",
+        preco: 200.00,
         tentativasFoto: [
             "WhatsApp Image 2026-11-12 at 15.10.39 (3).jpeg",
             "palmeiras.jpeg",
             "palmeiras.jpg"
         ],
-        tamanhos: ["P", "M", "G", "GG"]
+        tamanhos: ["P", "M", "G", "GG", "3XG"]
     },
     {
-        nome: "Camisa Grêmio Azul Edição 1996",
+        nome: "Camisa Grêmio III 2026/27",
         preco: 160.00,
         tentativasFoto: [
             "WhatsApp Image 2026-11-12 at 15.10.38 (1).jpeg",
             "gremio.jpeg",
             "gremio.jpg"
         ],
-        tamanhos: ["P", "M", "G", "GG"]
+        tamanhos: ["P", "M", "G", "GG", "3XG"]
     }
 ];
 
